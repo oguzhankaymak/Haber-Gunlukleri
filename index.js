@@ -1,9 +1,19 @@
-/**
- * @format
- */
-
-import {AppRegistry} from 'react-native';
+import React from 'react';
+import {AppRegistry, SafeAreaView} from 'react-native';
 import {name as appName} from './app.json';
-import Navigation from './app/navigation/Navigation';
 
-AppRegistry.registerComponent(appName, () => Navigation);
+import {Provider} from 'react-redux';
+import Navigation from './app/navigation/Navigation';
+import configureStore from './app/redux/Store';
+
+const store = configureStore();
+
+const root = () => (
+  <Provider store={store}>
+    <SafeAreaView style={{flex: 1}}>
+      <Navigation />
+    </SafeAreaView>
+  </Provider>
+);
+
+AppRegistry.registerComponent(appName, () => root);
