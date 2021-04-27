@@ -1,9 +1,11 @@
-import {START, SUCCESS, ERROR} from './Types';
+import {START, SUCCESS, ERROR, CHANGE_CATEGORY, CHANGE_COUNTRY} from './Types';
 
 const initialState = {
   isLoading: false,
   news: [],
   message: '',
+  country: 'tr',
+  category: '',
 };
 
 export const newsReducer = (state = initialState, action) => {
@@ -14,6 +16,10 @@ export const newsReducer = (state = initialState, action) => {
       return {...state, news: action.payload, isLoading: false};
     case ERROR:
       return {...state, message: action.payload, isLoading: false};
+    case CHANGE_COUNTRY:
+      return {...state, country: action.payload};
+    case CHANGE_CATEGORY:
+      return {...state, category: action.payload};
     default:
       return state;
   }
