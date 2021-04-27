@@ -23,7 +23,7 @@ export default StyleSheet.create({
 
   image: {
     width: deviceWidth - 60,
-    height: 150,
+    height: 180,
     borderTopRightRadius: 20,
     borderTopLeftRadius: 20,
   },
