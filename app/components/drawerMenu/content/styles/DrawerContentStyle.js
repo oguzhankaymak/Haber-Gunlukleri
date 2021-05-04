@@ -12,6 +12,7 @@ export default StyleSheet.create({
     backgroundColor: Colors.black,
     justifyContent: 'center',
     paddingHorizontal: 10,
+    paddingTop: 20,
   },
 
   icon: {
@@ -36,7 +37,7 @@ export default StyleSheet.create({
     height: 0.5,
   },
 
-  cards: {
+  content: {
     flex: 1,
     backgroundColor: Colors.black,
     paddingTop: 70,
@@ -45,5 +46,17 @@ export default StyleSheet.create({
 
   secondCard: {
     marginTop: 80,
+  },
+
+  footer: {
+    height: 40,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: Colors.black,
+  },
+
+  cancelText: {
+    color: Colors.webGray,
+    fontSize: Fonts.size.h2,
   },
 });

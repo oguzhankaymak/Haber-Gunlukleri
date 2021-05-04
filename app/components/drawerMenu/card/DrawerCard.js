@@ -4,9 +4,10 @@ import {SwitchIcon} from '../../icons';
 
 import styles from './styles/DrawerCardStyle';
 
-const DrawerCard = ({title, value, backgroundColor, color}) => {
+const DrawerCard = ({title, value, backgroundColor, color, onPress}) => {
   return (
     <TouchableOpacity
+      onPress={onPress}
       style={[styles.container, {backgroundColor: backgroundColor}]}>
       <View style={styles.card}>
         <Text style={[styles.titleText, {color: color}]}>{title}</Text>
