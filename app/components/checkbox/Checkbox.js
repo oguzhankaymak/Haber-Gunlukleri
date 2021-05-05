@@ -3,9 +3,11 @@ import {View, Text, TouchableOpacity} from 'react-native';
 
 import styles from './styles/CheckboxStyle';
 
-const Checkbox = ({active, id, name, type = 'country'}) => {
+const Checkbox = ({active, item, type = 'country', onPress}) => {
   return (
     <TouchableOpacity
+      onPress={() => onPress(item)}
+      disabled={active}
       style={[
         styles.button,
         active
@@ -22,7 +24,7 @@ const Checkbox = ({active, id, name, type = 'country'}) => {
         }>
         {active && <View style={styles.smallCircle} />}
       </View>
-      <Text style={styles.nameText}>{name}</Text>
+      <Text style={styles.nameText}>{item?.name}</Text>
     </TouchableOpacity>
   );
 };
