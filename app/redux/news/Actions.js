@@ -1,5 +1,5 @@
 import {request} from '../../utils/Request';
-import {START, SUCCESS, ERROR} from './Types';
+import {START, SUCCESS, ERROR, CHANGE_COUNTRY, CHANGE_CATEGORY} from './Types';
 
 export const getNews = () => {
   return async (dispatch, getState) => {
@@ -13,5 +13,17 @@ export const getNews = () => {
     } catch (err) {
       dispatch({type: ERROR, payload: err});
     }
+  };
+};
+
+export const changeCountry = country => {
+  return async dispatch => {
+    dispatch({type: CHANGE_COUNTRY, payload: country});
+  };
+};
+
+export const changeCategory = category => {
+  return async dispatch => {
+    dispatch({type: CHANGE_CATEGORY, payload: category});
   };
 };
