@@ -4,8 +4,8 @@ const initialState = {
   isLoading: false,
   news: [],
   message: '',
-  country: 'tr',
-  category: '',
+  country: {key: 'tr', name: 'Türkiye'},
+  category: {key: 'general', name: 'Genel'},
 };
 
 export const newsReducer = (state = initialState, action) => {
