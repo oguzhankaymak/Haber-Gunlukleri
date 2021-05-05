@@ -5,11 +5,14 @@ import {COUNTRY} from '../../../../mocks/Data';
 
 import styles from './styles/CountryStyle';
 
-const Country = () => {
-  const key = 'tr';
+const Country = ({activeCountry}) => {
   const renderCategoryItem = ({item}) => (
     <View style={styles.item}>
-      <Checkbox active={key === item.key} name={item.name} type={'country'} />
+      <Checkbox
+        active={activeCountry?.key === item.key}
+        name={item.name}
+        type={'country'}
+      />
     </View>
   );
 
@@ -22,4 +25,4 @@ const Country = () => {
   );
 };
 
-export default Country;
+export default React.memo(Country);

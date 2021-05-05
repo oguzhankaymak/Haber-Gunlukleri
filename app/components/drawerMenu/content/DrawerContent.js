@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
+import {useSelector} from 'react-redux';
+import {categoryDataMemo, countryDataMemo} from '../../../redux/news/Selectors';
 import Colors from '../../../theme/Colors';
 
 import {NewspaperIcon} from '../../icons';
@@ -10,6 +12,9 @@ import Country from './country/Country';
 import styles from './styles/DrawerContentStyle';
 
 const DrawerContent = props => {
+  const activeCategory = useSelector(categoryDataMemo);
+  const activeCountry = useSelector(countryDataMemo);
+
   const [contentType, setContentType] = useState(Constants.LIST);
 
   const _renderHeader = () => (
@@ -30,7 +35,7 @@ const DrawerContent = props => {
         <View style={styles.list}>
           <DrawerCard
             title={'Ülke'}
-            value={'Türkiye'}
+            value={activeCountry?.name}
             backgroundColor={Colors.purplishPink}
             color={Colors.white}
             onPress={() => setContentType(Constants.COUNTRY_LIST)}
@@ -38,7 +43,7 @@ const DrawerContent = props => {
           <View style={styles.secondCard}>
             <DrawerCard
               title={'Kategori'}
-              value={'Teknoloji'}
+              value={activeCategory?.name}
               backgroundColor={Colors.hotPink}
               color={Colors.white}
               onPress={() => setContentType(Constants.CATEGORY_LIST)}
@@ -49,13 +54,13 @@ const DrawerContent = props => {
     } else if (contentType === Constants.COUNTRY_LIST) {
       return (
         <View style={styles.categoryList}>
-          <Country />
+          <Country activeCountry={activeCountry} />
         </View>
       );
     } else if (contentType === Constants.CATEGORY_LIST) {
       return (
         <View style={styles.categoryList}>
-          <Category />
+          <Category activeCategory={activeCategory} />
         </View>
       );
     }
