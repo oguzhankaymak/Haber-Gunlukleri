@@ -4,6 +4,7 @@ import Colors from '../../../theme/Colors';
 
 import {NewspaperIcon} from '../../icons';
 import DrawerCard from '../card/DrawerCard';
+import Category from './category/Category';
 import Constants from './constants/Constants';
 import styles from './styles/DrawerContentStyle';
 
@@ -25,7 +26,7 @@ const DrawerContent = props => {
   const _renderContent = () => {
     if (contentType === Constants.LIST) {
       return (
-        <>
+        <View style={styles.list}>
           <DrawerCard
             title={'Ülke'}
             value={'Türkiye'}
@@ -42,12 +43,16 @@ const DrawerContent = props => {
               onPress={() => setContentType(Constants.CATEGORY_LIST)}
             />
           </View>
-        </>
+        </View>
       );
     } else if (contentType === Constants.COUNTRY_LIST) {
       return <Text>Country</Text>;
     } else if (contentType === Constants.CATEGORY_LIST) {
-      return <Text>CATEGORY_LIST</Text>;
+      return (
+        <View style={styles.categoryList}>
+          <Category />
+        </View>
+      );
     }
   };
 
