@@ -1,7 +1,11 @@
 import React, {useEffect} from 'react';
 import {View, FlatList} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
-import {newsDataMemo} from '../../redux/news/Selectors';
+import {
+  categoryDataMemo,
+  countryDataMemo,
+  newsDataMemo,
+} from '../../redux/news/Selectors';
 
 import styles from './styles/HomeScreenStyles';
 import NewsCard from '../../components/home/NewsCard';
@@ -10,12 +14,12 @@ import {getNews} from '../../redux/news/Actions';
 const HomeScreen = () => {
   const dispatch = useDispatch();
   const news = useSelector(newsDataMemo);
+  const category = useSelector(categoryDataMemo);
+  const country = useSelector(countryDataMemo);
 
   useEffect(() => {
-    if (!news || news.length === 0) {
-      dispatch(getNews());
-    }
-  }, []);
+    dispatch(getNews());
+  }, [category, country]);
 
   const renderItem = ({item}) => (
     <View style={styles.itemStyle}>
