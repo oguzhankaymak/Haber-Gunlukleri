@@ -40,12 +40,19 @@ export default StyleSheet.create({
   content: {
     flex: 1,
     backgroundColor: Colors.black,
-    paddingTop: 70,
     paddingHorizontal: 8,
+  },
+
+  list: {
+    paddingTop: 60,
   },
 
   secondCard: {
     marginTop: 80,
+  },
+
+  categoryList: {
+    paddingTop: 30,
   },
 
   footer: {
