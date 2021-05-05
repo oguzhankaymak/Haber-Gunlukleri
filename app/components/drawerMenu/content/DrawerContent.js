@@ -6,6 +6,7 @@ import {NewspaperIcon} from '../../icons';
 import DrawerCard from '../card/DrawerCard';
 import Category from './category/Category';
 import Constants from './constants/Constants';
+import Country from './country/Country';
 import styles from './styles/DrawerContentStyle';
 
 const DrawerContent = props => {
@@ -46,7 +47,11 @@ const DrawerContent = props => {
         </View>
       );
     } else if (contentType === Constants.COUNTRY_LIST) {
-      return <Text>Country</Text>;
+      return (
+        <View style={styles.categoryList}>
+          <Country />
+        </View>
+      );
     } else if (contentType === Constants.CATEGORY_LIST) {
       return (
         <View style={styles.categoryList}>

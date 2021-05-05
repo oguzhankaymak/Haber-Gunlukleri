@@ -6,3 +6,13 @@ export const COUNTRY = [
   {key: 'ru', name: 'Rusya'},
   {key: 'no', name: 'Norveç'},
 ];
+
+export const CATEGORY = [
+  {key: 'business', name: 'İş'},
+  {key: 'entertainment', name: 'Eğlence'},
+  {key: 'general', name: 'Genel'},
+  {key: 'health', name: 'Sağlık'},
+  {key: 'science', name: 'Bilim'},
+  {key: 'sports', name: 'Spor'},
+  {key: 'technology', name: 'Teknoloji'},
+];

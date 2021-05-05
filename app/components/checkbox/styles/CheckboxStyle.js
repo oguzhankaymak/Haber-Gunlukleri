@@ -10,17 +10,32 @@ export default StyleSheet.create({
     paddingLeft: 10,
   },
 
-  activeButton: {
+  activeCountryButton: {
     borderWidth: 1,
-    borderColor: Colors.purplishPink,
     borderRadius: 10,
+    borderColor: Colors.purplishPink,
   },
 
-  bigCircle: {
+  activeCategoryButton: {
+    borderWidth: 1,
+    borderRadius: 10,
+    borderColor: Colors.hotPink,
+  },
+
+  countryBigCircle: {
     width: 25,
     height: 25,
     borderRadius: 25 / 2,
-    backgroundColor: Colors.webGray,
+    backgroundColor: Colors.purplishPink,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  categoryBigCircle: {
+    width: 25,
+    height: 25,
+    borderRadius: 25 / 2,
+    backgroundColor: Colors.hotPink,
     alignItems: 'center',
     justifyContent: 'center',
   },

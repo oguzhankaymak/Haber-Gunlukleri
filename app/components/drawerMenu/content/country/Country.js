@@ -1,25 +1,25 @@
 import React from 'react';
 import {View, FlatList} from 'react-native';
 import Checkbox from '../../../checkbox/Checkbox';
-import {CATEGORY} from '../../../../mocks/Data';
+import {COUNTRY} from '../../../../mocks/Data';
 
-import styles from './styles/CategoryStyle';
+import styles from './styles/CountryStyle';
 
-const Category = () => {
-  const key = 'science';
+const Country = () => {
+  const key = 'tr';
   const renderCategoryItem = ({item}) => (
     <View style={styles.item}>
-      <Checkbox active={key === item.key} name={item.name} type={'category'} />
+      <Checkbox active={key === item.key} name={item.name} type={'country'} />
     </View>
   );
 
   return (
     <FlatList
       keyExtractor={(item, index) => index}
-      data={CATEGORY}
+      data={COUNTRY}
       renderItem={renderCategoryItem}
     />
   );
 };
 
-export default Category;
+export default Country;
