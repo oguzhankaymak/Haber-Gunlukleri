@@ -1,6 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {View, FlatList} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
+import {newsDataMemo} from '../../redux/news/Selectors';
 
 import styles from './styles/HomeScreenStyles';
 import NewsCard from '../../components/home/NewsCard';
@@ -8,11 +9,11 @@ import {getNews} from '../../redux/news/Actions';
 
 const HomeScreen = () => {
   const dispatch = useDispatch();
-  const data = useSelector(state => state.news.news);
+  const news = useSelector(newsDataMemo);
 
   useEffect(() => {
-    if (!data || data.length === 0) {
-      dispatch(getNews('tr', 'sports'));
+    if (!news || news.length === 0) {
+      dispatch(getNews());
     }
   }, []);
 
@@ -31,7 +32,7 @@ const HomeScreen = () => {
   return (
     <View style={styles.container}>
       <FlatList
-        data={data}
+        data={news}
         keyExtractor={(item, index) => index}
         renderItem={renderItem}
       />
