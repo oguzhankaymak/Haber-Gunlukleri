@@ -12,4 +12,10 @@ export default StyleSheet.create({
     marginTop: 20,
     marginBottom: 20,
   },
+
+  noContent: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 });

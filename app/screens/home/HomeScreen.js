@@ -1,21 +1,24 @@
 import React, {useEffect} from 'react';
-import {View, FlatList} from 'react-native';
+import {View, FlatList, Text, ScrollView} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import {
   categoryDataMemo,
   countryDataMemo,
+  isLoadingDataMemo,
   newsDataMemo,
 } from '../../redux/news/Selectors';
 
 import styles from './styles/HomeScreenStyles';
 import NewsCard from '../../components/home/NewsCard';
 import {getNews} from '../../redux/news/Actions';
+import CardLoader from '../../components/home/cardLoader/CardLoader';
 
 const HomeScreen = () => {
   const dispatch = useDispatch();
   const news = useSelector(newsDataMemo);
   const category = useSelector(categoryDataMemo);
   const country = useSelector(countryDataMemo);
+  const isLoading = useSelector(isLoadingDataMemo);
 
   useEffect(() => {
     dispatch(getNews());
@@ -33,15 +36,33 @@ const HomeScreen = () => {
     </View>
   );
 
-  return (
-    <View style={styles.container}>
-      <FlatList
-        data={news}
-        keyExtractor={(item, index) => index}
-        renderItem={renderItem}
-      />
-    </View>
-  );
+  const _renderContent = () => {
+    if (isLoading) {
+      return (
+        <ScrollView>
+          <CardLoader />
+          <CardLoader />
+        </ScrollView>
+      );
+    } else if (news && Array.isArray(news)) {
+      return (
+        <FlatList
+          data={news}
+          keyExtractor={(item, index) => index}
+          renderItem={renderItem}
+        />
+      );
+    } else {
+      return (
+        <View style={styles.noContent}>
+          <Text>Haber Bulunamadı!</Text>
+          <Text>API KEY girmeyi unutmayınız...</Text>
+        </View>
+      );
+    }
+  };
+
+  return <View style={styles.container}>{_renderContent()}</View>;
 };
 
 export default HomeScreen;
