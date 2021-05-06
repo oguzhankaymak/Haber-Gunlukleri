@@ -14,3 +14,8 @@ export const categoryDataMemo = createSelector(
   state => state.news.category,
   category => category,
 );
+
+export const isLoadingDataMemo = createSelector(
+  state => state.news.isLoading,
+  isLoading => isLoading,
+);
