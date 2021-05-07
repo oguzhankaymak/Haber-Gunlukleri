@@ -20,7 +20,7 @@ const HomeStack = () => {
         options={{
           headerShown: true,
           headerTitleAlign: 'center',
-          title: 'Son Haber',
+          title: 'Haber Günlükleri',
           headerStyle: {
             backgroundColor: Colors.black,
             justifyContent: 'center',
