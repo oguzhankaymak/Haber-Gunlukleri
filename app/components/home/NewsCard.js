@@ -4,7 +4,7 @@ import {ArrowRightIcon} from '../icons';
 
 import styles from './styles/NewsCardStyle';
 
-const NewsCard = ({title, description, image, source, url}) => {
+const NewsCard = ({title, description, image, source, url, onPress}) => {
   return (
     <View style={styles.shadow}>
       <View style={styles.container}>
@@ -15,14 +15,14 @@ const NewsCard = ({title, description, image, source, url}) => {
           }}
         />
         <View style={styles.content}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => onPress(url)}>
             <Text style={styles.titleText}>{title}</Text>
           </TouchableOpacity>
           <Text style={styles.descriptionText}>{description}</Text>
           <Text style={styles.sourceText}>{source}</Text>
         </View>
 
-        <TouchableOpacity style={styles.detailBtn}>
+        <TouchableOpacity onPress={() => onPress(url)} style={styles.detailBtn}>
           <Text style={styles.detailText}>
             <ArrowRightIcon
               stroke={styles.icon.color}
