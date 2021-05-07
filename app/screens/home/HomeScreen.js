@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {View, FlatList, Text, ScrollView} from 'react-native';
+import {View, FlatList, Text} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import {
   categoryDataMemo,
@@ -13,7 +13,7 @@ import NewsCard from '../../components/home/NewsCard';
 import {getNews} from '../../redux/news/Actions';
 import CardLoader from '../../components/home/cardLoader/CardLoader';
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
   const dispatch = useDispatch();
   const news = useSelector(newsDataMemo);
   const category = useSelector(categoryDataMemo);
@@ -32,6 +32,7 @@ const HomeScreen = () => {
         image={item.urlToImage}
         source={item.source.name}
         url={item.url}
+        onPress={url => navigation.navigate('DetailScreen', {url})}
       />
     </View>
   );
@@ -39,10 +40,10 @@ const HomeScreen = () => {
   const _renderContent = () => {
     if (isLoading) {
       return (
-        <ScrollView>
+        <>
           <CardLoader />
           <CardLoader />
-        </ScrollView>
+        </>
       );
     } else if (news && Array.isArray(news)) {
       return (
