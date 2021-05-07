@@ -24,8 +24,8 @@ const DrawerContent = props => {
         width={styles.icon.width}
         height={styles.icon.height}
       />
-      <Text style={styles.titleText}>Son Haber</Text>
-      <Text style={styles.descriptionText}>Son Haberler Artık Cebinizde!</Text>
+      <Text style={styles.titleText}>Haber Günlükleri</Text>
+      <Text style={styles.descriptionText}>Haberler Artık Cebinizde!</Text>
     </View>
   );
 
