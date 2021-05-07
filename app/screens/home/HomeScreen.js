@@ -45,7 +45,7 @@ const HomeScreen = ({navigation}) => {
           <CardLoader />
         </>
       );
-    } else if (news && Array.isArray(news)) {
+    } else if (news && Array.isArray(news) && news.length > 0) {
       return (
         <FlatList
           data={news}
