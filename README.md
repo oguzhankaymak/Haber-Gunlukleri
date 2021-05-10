@@ -71,6 +71,4 @@ npx react-native run-ios
 
 https://user-images.githubusercontent.com/36153454/117650919-f563c080-b199-11eb-8811-0d9f939c5404.mp4
 
-https://user-images.githubusercontent.com/36153454/117651514-aff3c300-b19a-11eb-9c79-7ce6fa779258.mp4
-
 https://user-images.githubusercontent.com/36153454/117650522-7bcbd280-b199-11eb-9a86-4825e3c309f9.mp4
